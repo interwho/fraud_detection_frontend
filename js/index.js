@@ -1,4 +1,11 @@
-var map = L.map('map').setView([48.517,18.255], 5);
+var maxBounds =  L.latLngBounds(
+  L.latLng(5.499550, -167.276413),
+  L.latLng(83.162102, -52.233040)
+);
+
+//var map = L.map('map').setView([48.517,18.255], 5);
+
+var map = L.map('map',{ zoomControl:false, attributionControl: false, }).setView([37.8, -96], 4);;
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -21,7 +28,7 @@ var realtime = L.realtime({
     }, {
     interval: 1 * 1000,
     getFeatureId: function(featureData){
-    	return featureData.id;
+        return featureData.id;
     },
     pointToLayer: function (feature, latlng) {
         if (feature.properties.Status == "red") {
