@@ -22,11 +22,11 @@ var redIcon = L.icon({
 });
 
 var realtime = L.realtime({
-    url: 'http://172.104.35.219/api/dashboard/transactions',
+    url: 'http://54.179.190.79:81/api/dashboard/transactions',
     crossOrigin: true,
     type: 'json' 
     }, {
-    interval: 10 * 1000,
+    interval: 1 * 1000,
     getFeatureId: function(featureData){
         return featureData.id;
     },
