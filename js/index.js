@@ -13,11 +13,11 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 var transactionLayer = L.layerGroup();
 var greenIcon = L.icon({
-    iconUrl: 'http://icons.iconarchive.com/icons/hopstarter/scrap/256/Aqua-Ball-Green-icon.png',
+    iconUrl: 'img/Aqua-Ball-Green-icon.png',
     iconSize: [20, 20]
 });
 var redIcon = L.icon({
-    iconUrl: 'http://icons.iconarchive.com/icons/hopstarter/scrap/256/Aqua-Ball-Red-icon.png',
+    iconUrl: 'img/Aqua-Ball-Red-icon.png',
     iconSize: [20, 20]
 });
 
@@ -26,7 +26,7 @@ var realtime = L.realtime({
     crossOrigin: true,
     type: 'json' 
     }, {
-    interval: 1 * 1000,
+    interval: 10 * 1000,
     getFeatureId: function(featureData){
         return featureData.id;
     },
