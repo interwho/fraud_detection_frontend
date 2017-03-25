@@ -22,7 +22,7 @@
 </head>
 <body>
 <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -69,6 +69,7 @@
             </thead>
         </table>
     </div>
+
 <script>
 
    function query() {
@@ -77,5 +78,6 @@
 	$('#table').bootstrapTable('refresh', {url: 'http://172.104.35.219/api/dashboard/transactions/search?region_name='+text});
 	}
 </script>
+
 </body>
 </html>
