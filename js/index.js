@@ -22,7 +22,7 @@ var redIcon = L.icon({
 });
 
 var realtime = L.realtime({
-    url: 'http://54.179.190.79:80/api/dashboard/transactions',
+    url: 'http://172.104.35.219:80/api/dashboard/transactions',
     crossOrigin: true,
     type: 'json' 
     }, {
