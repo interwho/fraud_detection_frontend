@@ -1,35 +1,27 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Fraud Detection | Filtering</title>
-    <link rel="stylesheet" href="leaflet/leaflet.css" />
-    <style>
-        #map {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            z-index: 1;
-        }
+    <title>DBSHack2Hire</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap-table/src/bootstrap-table.css">
+    <link rel="stylesheet" href="assets/examples.css">
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <script src="assets/bootstrap/js/ga.js"></script>
+	<style>
+	.fixed-table-header {
+		visibility: hidden;
+	}
+	.search {
+		visibility: hidden;
+	}
+	</style>
 
-        .overlap{
-            position: relative;
-            z-index:2;
-            background: white;
-        }
-    </style>
-    <!-- Bootstrap: Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-
-    <!-- Bootstrap: Optional theme -->
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-
-    <!-- Bootstrap: Latest compiled and minified JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-    <!-- Fixed navbar -->
+<!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -44,42 +36,46 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/">Visualize</a></li>
-            <li class="active"><a href="/filter.html" id="filter_link" class="toplink">Analyze</a></li>
+            <li class="active"><a href="filter.html" id="filter_link" class="toplink">Analyze</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-    <!-- Content -->
-    <div class="container" style="margin-top:100px;">
-        <h1>Client Side Pagination</h1>
-    <form class="pull-right form-inline">
-        <label class="sr-only" for="inlineFormInput">Search:</label>
-        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Jane Doe">
+    <div class="container">
+        <h1>Fraud Detection System Dashboard</h1>
+	<form class="pull-right form-inline">
+		<label class="sr-only" for="inlineFormInput">Search:</label>
+		<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Search">
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+		<button type="submit" class="btn btn-primary" onclick="query(); return false;">Submit</button>
+	</form>
         <table id="table"
                data-toggle="table"
                data-height="460"
                data-pagination="true"
                data-search="true"
-               data-url="dash.json">
+		data-url="http://172.104.35.219/api/dashboard/transactions/search?region_name=Kentucky">
             <thead>
             <tr>
-                <th data-field="transaction_id">transaction_id</th>
-                <th data-field="device_is">device_is</th>
-                <th data-field="transaction_value">transaction_value</th>
-                <th data-field="account_id">account_id</th>
-                <th data-field="ts_millis">ts_millis</th>
+                <th data-field="transaction_id">Transaction ID</th>
+                <th data-field="device">Device</th>
+                <th data-field="account_id">Account ID</th>
+                <th data-field="transaction_value">Amount</th>
+                <th data-field="name">Location</th>
+                <th data-field="fradulent">Fradulent?</th>
+                <th data-field="Reason">Reason</th>
             </tr>
             </thead>
         </table>
     </div>
 <script>
-    var $table = $('#table');
-    $(function () {
-    });
+
+   function query() {
+	var text = document.getElementById("inlineFormInput").value;
+
+	$('#table').bootstrapTable('refresh', {url: 'http://172.104.35.219/api/dashboard/transactions/search?region_name='+text});
+	}
 </script>
 </body>
 </html>
