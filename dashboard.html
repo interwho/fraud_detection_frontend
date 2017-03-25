@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>client-side-pagination</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap-table/src/bootstrap-table.css">
+    <link rel="stylesheet" href="../assets/examples.css">
+    <script src="../assets/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap-table/src/bootstrap-table.js"></script>
+    <script src="../assets/bootstrap/js/ga.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Client Side Pagination</h1>
+        <table id="table"
+               data-toggle="table"
+               data-height="460"
+               data-pagination="true"
+               data-search="true"
+               data-url="dash.json">
+            <thead>
+            <tr>
+                <th data-field="transaction_id">transaction_id</th>
+                <th data-field="device_is">device_is</th>
+                <th data-field="transaction_value">transaction_value</th>
+                <th data-field="account_id">account_id</th>
+                <th data-field="ts_millis">ts_millis</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+<script>
+    var $table = $('#table');
+    $(function () {
+    });
+</script>
+</body>
+</html>
