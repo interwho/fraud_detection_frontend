@@ -55,7 +55,7 @@
                data-height="460"
                data-pagination="true"
                data-search="true"
-	       data-url="http://54.179.190.79:81/api/dashboard/transactions/search?region_name=Kentucky">
+	       data-url="http://54.179.190.79:80/api/dashboard/transactions/search?region_name=Kentucky">
             <thead>
             <tr>
                 <th data-field="id">Transaction ID</th>
@@ -75,7 +75,7 @@
    function query() {
 	var text = document.getElementById("inlineFormInput").value;
 
-	$('#table').bootstrapTable('refresh', {url: 'http://54.179.190.79:81/api/dashboard/transactions/search?region_name='+text});
+	$('#table').bootstrapTable('refresh', {url: 'http://54.179.190.79:80/api/dashboard/transactions/search?region_name='+text});
 	}
 </script>
 
