@@ -35,7 +35,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="filter.html">Visualize</a></li>
+            <li><a href="/">Visualize</a></li>
             <li class="active"><a href="filter.html" id="filter_link" class="toplink">Analyze</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -46,7 +46,7 @@
         <h1>Fraud Detection System Dashboard</h1>
 	<form class="pull-right form-inline">
 		<label class="sr-only" for="inlineFormInput">Search:</label>
-		<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Search">
+		<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Enter region name">
 
 		<button type="submit" class="btn btn-primary" onclick="query(); return false;">Submit</button>
 	</form>
@@ -55,16 +55,16 @@
                data-height="460"
                data-pagination="true"
                data-search="true"
-		data-url="http://172.104.35.219/api/dashboard/transactions/search?region_name=Kentucky">
+	       data-url="http://localhost:81/api/dashboard/transactions/search?region_name=Kentucky">
             <thead>
             <tr>
-                <th data-field="transaction_id">Transaction ID</th>
-                <th data-field="device">Device</th>
+                <th data-field="id">Transaction ID</th>
+                <th data-field="device.id">Device</th>
                 <th data-field="account_id">Account ID</th>
                 <th data-field="transaction_value">Amount</th>
-                <th data-field="name">Location</th>
-                <th data-field="fradulent">Fradulent?</th>
-                <th data-field="Reason">Reason</th>
+                <th data-field="device.location.name">Region Name</th>
+                <th data-field="is_fraud">Fradulent?</th>
+                <th data-field="fraud_reason">Reason</th>
             </tr>
             </thead>
         </table>
@@ -75,7 +75,7 @@
    function query() {
 	var text = document.getElementById("inlineFormInput").value;
 
-	$('#table').bootstrapTable('refresh', {url: 'http://172.104.35.219/api/dashboard/transactions/search?region_name='+text});
+	$('#table').bootstrapTable('refresh', {url: 'http://localhost:81/api/dashboard/transactions/search?region_name='+text});
 	}
 </script>
 
